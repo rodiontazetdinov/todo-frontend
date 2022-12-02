@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-// import '../App.sass';
+import './App.sass';
 
 import Header from '../Header/Header';
 
