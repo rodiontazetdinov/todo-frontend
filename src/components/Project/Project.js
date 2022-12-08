@@ -1,13 +1,14 @@
 import './Project.sass'
 
-function Project() {
+
+function Project({ id, title, todosCount }) {
   return (
-    <div className='project'>
+    <li className='project'>
       <h2 className='project__title'>
-        Project 1
+        {title}
       </h2>
-      <p className='project__counter'>Todos: 19</p>
-    </div>
+      <p className='project__counter'>Todos: {todosCount}</p>
+    </li>
   );
 }
 
