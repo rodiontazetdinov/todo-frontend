@@ -4,3 +4,9 @@ export const loadProjects = (projects) => {
       payload: projects
   }
 }
+
+export const projectsLoaded = () => {
+  return {
+      type: 'PROJECTS_LOADED'
+  }
+}
