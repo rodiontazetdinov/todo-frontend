@@ -1,15 +1,20 @@
 const initialState = {
-  someStateArr: [],
-  someState: ''
+  projects: [],
+  projectsLoaded: false
 }
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-      case 'TEST_ACTION':
+      case 'LOAD_PROJECTS':
           return {
               ...state,
-              someState: 'changing'
+              projects: action.payload
           }
+      case 'PROJECTS_LOADED':
+        return {
+            ...state,
+            projectsLoaded: true
+        }
       default: return state
   }
 }
