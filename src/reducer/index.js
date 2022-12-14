@@ -1,6 +1,7 @@
 const initialState = {
   projects: [],
-  projectsLoaded: false
+  projectsLoaded: false,
+  isAddProjectPopupOpened: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -14,6 +15,11 @@ const reducer = (state = initialState, action) => {
         return {
             ...state,
             projectsLoaded: true
+        }
+      case 'TOGGLE_ADD_PROJECT_POPUP_OPENED':
+        return {
+            ...state,
+            isAddProjectPopupOpened: action.payload
         }
       default: return state
   }
