@@ -10,3 +10,10 @@ export const projectsLoaded = () => {
       type: 'PROJECTS_LOADED'
   }
 }
+
+export const toggleAddProjectPopupOpened = (isOpen) => {
+  return {
+      type: 'TOGGLE_ADD_PROJECT_POPUP_OPENED',
+      payload: isOpen
+  }
+}
