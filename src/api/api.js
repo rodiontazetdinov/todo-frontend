@@ -6,12 +6,7 @@ export const getProjects = () => {
     return projects;
   }
   const project = [{id: '1', title: 'Ваш первый проект', todosCount: 0}];
-  localStorage.setItem('projects', JSON.stringify(project));
-  // нужно ли будет возвращать?
-  return project;
-  //или пустая страница
-  // return '';
-
+  return [];
 };
 
 export const addProject = (id, title, todosCount) => {
@@ -19,12 +14,10 @@ export const addProject = (id, title, todosCount) => {
     const projects = JSON.parse(localStorage.getItem('projects'));
     projects.push({id, title, todosCount});
     localStorage.setItem('projects', JSON.stringify(projects));
-    // нужно ли будет возвращать?
     return projects;
   }
 
   const project = [{id, title, todosCount}];
   localStorage.setItem('projects', JSON.stringify(project));
-  // нужно ли будет возвращать?
   return project;
 };
