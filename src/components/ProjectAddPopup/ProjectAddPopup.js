@@ -1,13 +1,13 @@
 import './ProjectAddPopup.sass'
 
 import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import { v4 as uuidv4 } from 'uuid';
 
 import Input from '../Input/Input';
 import * as api from '../../api/api'
-import { loadProjects } from '../../actions/index'
+import { loadProjects, toggleAddProjectPopupOpened } from '../../actions/index'
 
 
 
@@ -35,6 +35,26 @@ function ProjectAddPopup() {
         setValue('');
     };
 
+    const closeAddProjectPopup = (e) => {
+        dispatch(toggleAddProjectPopupOpened(false));
+        setValue('');
+    };
+
+    useEffect(() => {
+        function closeByEscape(e) {
+        if(e.key === 'Escape') {
+            dispatch(toggleAddProjectPopupOpened(false));
+            setValue('');
+        }
+        }
+        if(isAddProjectPopupOpened) { // навешиваем только при открытии
+        document.addEventListener('keydown', closeByEscape);
+        return () => {
+            document.removeEventListener('keydown', closeByEscape);
+        }
+        }
+    }, [isAddProjectPopupOpened]);
+
     return (
         <div className={popupClass}>
             <form className="add-project-popup__form" name='name' onSubmit={submitProject}>
@@ -48,8 +68,17 @@ function ProjectAddPopup() {
                     maxLength={30}
                     value={value}
                     onChange={changeValue}/>
-                <input className="add-project-popup__button" type="submit" value="Добавить"/>
-                <input type="button" className="add-project-popup__close" aria-label="закрыть"/>
+                <input
+                    className="add-project-popup__button"
+                    type="submit"
+                    value="Добавить"
+                />
+                <input
+                    type="button"
+                    className="add-project-popup__close"
+                    aria-label="закрыть"
+                    onClick={closeAddProjectPopup}
+                />
             </form>
         </div>
     )
