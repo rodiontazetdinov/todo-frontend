@@ -1,6 +1,6 @@
 import './AddBtn.sass'
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { toggleAddProjectPopupOpened } from '../../actions/index'
 
