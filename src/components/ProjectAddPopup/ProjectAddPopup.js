@@ -40,6 +40,8 @@ function ProjectAddPopup() {
         setValue('');
     };
 
+    const closeByOverlay = (e) => (e.currentTarget === e.target) && closeAddProjectPopup();
+
     useEffect(() => {
         function closeByEscape(e) {
         if(e.key === 'Escape') {
@@ -47,7 +49,7 @@ function ProjectAddPopup() {
             setValue('');
         }
         }
-        if(isAddProjectPopupOpened) { // навешиваем только при открытии
+        if(isAddProjectPopupOpened) {
         document.addEventListener('keydown', closeByEscape);
         return () => {
             document.removeEventListener('keydown', closeByEscape);
@@ -56,7 +58,7 @@ function ProjectAddPopup() {
     }, [isAddProjectPopupOpened]);
 
     return (
-        <div className={popupClass}>
+        <div className={popupClass} onClick={closeByOverlay}>
             <form className="add-project-popup__form" name='name' onSubmit={submitProject}>
                 <h2 className='add-project-popup__title'>{'Имя нового проекта:'}</h2>
                 <Input
