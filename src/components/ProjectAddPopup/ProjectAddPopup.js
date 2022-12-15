@@ -31,6 +31,7 @@ function ProjectAddPopup() {
     const submitProject = (e) => {
         e.preventDefault();
         api.addProject(uuidv4(), value);
+        closeAddProjectPopup();
         dispatch(loadProjects(api.getProjects()));
         setValue('');
     };
