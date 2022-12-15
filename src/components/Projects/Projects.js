@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loadProjects } from '../../actions/index.js';
 
 import Project from '../Project/Project.js';
+import AddBtn from '../AddBtn/AddBtn.js';
 
 import './Projects.sass';
 
@@ -18,7 +19,7 @@ function Projects() {
   const renderProjectsList = (arr) => {
     if (arr.length === 0) {
         return (
-          <h5 >Заглушка</h5>
+          <h5 className='projects__hint'>Добавьте Ваш первый проект</h5>
         )
     }
 
@@ -42,6 +43,7 @@ function Projects() {
     // projectsLoaded?
     <ul className='projects'>
       {elements}
+      <AddBtn/>
     </ul>
     // :
     // <h5> Заглушка при загрузке </h5>

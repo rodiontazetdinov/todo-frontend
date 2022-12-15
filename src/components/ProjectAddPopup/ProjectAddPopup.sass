@@ -1,0 +1,66 @@
+@import '../App/_vars'
+
+.add-project-popup
+    position: fixed
+    min-width: 100vw
+    min-height: 100vh
+    background-color: rgba(0, 0, 0, 0.5)
+    top: 0
+    left: 0
+    display: flex
+    opacity: 0
+    align-items: center
+    justify-content: center
+    transition: visibility 1s linear, opacity 1s linear
+    visibility: hidden
+    &_opened
+        opacity: 1
+        visibility: visible
+    &__form
+        display: flex
+        flex-direction: column
+        background-color: #fff
+        width: 282px
+        color: #000
+        max-width: 430px
+        // border-radius: 10px
+        padding: 25px 22px
+        box-sizing: border-box
+        position: relative
+        bottom: 113px
+        margin-right: 16px
+        margin-left: 16px
+    &__title
+        font-style: normal
+        font-weight: 900
+        font-size: 18px
+        line-height: 22px
+        color: red
+        margin: 0
+        margin-bottom: 58px
+    &__button
+        font-style: normal
+        font-weight: 400
+        font-size: 14px
+        line-height: 17px
+        text-align: center
+        color: #fff
+        background-color: $main-color
+        border: none
+        border-radius: 1px
+        text-decoration: none
+        display: inline-block
+        padding-top: 14px
+        padding-bottom: 14px
+        margin-top: 32px
+    &__close
+        position: absolute
+        right: 5px
+        top: 10px
+        width: 20px
+        height: 20px
+        background: transparent
+        background-image: url('../../images/close-icon.png')
+        background-size: contain
+        border: none
+    &__input

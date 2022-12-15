@@ -2,6 +2,7 @@ import './App.sass';
 import Main from '../Main/Main';
 
 import Header from '../Header/Header';
+import ProjectAddPopup from '../ProjectAddPopup/ProjectAddPopup'
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
       <Header/>
       <Main>
       </Main>
+      <ProjectAddPopup/>
     </div>
   );
 }
